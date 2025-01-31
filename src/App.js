@@ -10,7 +10,7 @@ import UsersList from './features/users/UsersList';
 const App = () => {
   return (
     <Routes>
-      <Route path='/' element={ <Layout />}>
+      <Route path='/' element={ <Layout /> }>
         <Route index element={ <Public /> } />
         <Route path='login' element={ <Login /> } />
         <Route path='dash' element={ <DashLayout /> }>

@@ -12,9 +12,9 @@ const Note = ({ noteId }) => {
   if(!note) return null;
 
   const created = new Date(note.createdAt)
-    .toLocalString('en-US', { day: 'numeric', month: 'long' });
+    .toLocaleString('en-US', { day: 'numeric', month: 'long' });
   const updated = new Date(note.updatedAt)
-    .toLocalString('en-US', { day: 'numeric', month: 'long' });
+    .toLocaleString('en-US', { day: 'numeric', month: 'long' });
 
   const handleEdit = () => navigate(`/dash/notes/${noteId}`);
 
