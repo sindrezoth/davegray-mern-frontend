@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 import { selectNoteById } from './notesApiSlice';
+import { selectUserById } from '../users/usersApiSlice';
 
 const Note = ({ noteId }) => {
   const note = useSelector(state => selectNoteById(state, noteId));
+  const author = useSelector(state => selectUserById(state, note.author));
   const navigate = useNavigate();
 
   if(!note) return null;
@@ -30,7 +32,7 @@ const Note = ({ noteId }) => {
       <td className='table__cell note__created'>{ created }</td>
       <td className='table__cell note__updated'>{ updated }</td>
       <td className='table__cell note__title'>{ note.title }</td>
-      <td className='table__cell note__username'>{ note.username }</td>
+      <td className='table__cell note__username'>{ author?.username }</td>
       <td className='table__cell'>
         <button 
           className='icon-button table__button'
